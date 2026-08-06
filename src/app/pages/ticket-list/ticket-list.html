@@ -1,0 +1,53 @@
+<section class="page-header">
+  <div>
+    <h1>Tickets</h1>
+    <p>Busca, filtra y revisa las solicitudes registradas.</p>
+  </div>
+
+  <a class="primary-link" routerLink="/tickets/nuevo">Nuevo ticket</a>
+</section>
+
+<section class="filters" aria-label="Filtros de tickets">
+  <label>
+    Buscar por titulo
+    <input
+      type="search"
+      placeholder="Ej: correo, impresora, acceso"
+      [ngModel]="busqueda()"
+      (ngModelChange)="actualizarBusqueda($event)"
+    />
+  </label>
+
+  <label>
+    Estado
+    <select [ngModel]="estado()" (ngModelChange)="actualizarEstado($event)">
+      <option value="todos">Todos</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="en-proceso">En proceso</option>
+      <option value="resuelto">Resuelto</option>
+    </select>
+  </label>
+
+  <label>
+    Prioridad
+    <select [ngModel]="prioridad()" (ngModelChange)="actualizarPrioridad($event)">
+      <option value="todas">Todas</option>
+      <option value="baja">Baja</option>
+      <option value="media">Media</option>
+      <option value="alta">Alta</option>
+    </select>
+  </label>
+</section>
+
+@if (ticketsFiltrados().length > 0) {
+  <section class="ticket-list" aria-label="Listado de tickets">
+    @for (ticket of ticketsFiltrados(); track ticket.id) {
+      <app-ticket-card [ticket]="ticket" />
+    }
+  </section>
+} @else {
+  <div class="empty-state">
+    <h2>No se encontraron tickets</h2>
+    <p>Ajusta los filtros o crea un nuevo ticket para continuar.</p>
+  </div>
+}

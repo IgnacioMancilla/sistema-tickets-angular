@@ -1,0 +1,55 @@
+<a class="back-link" routerLink="/tickets">Volver a tickets</a>
+
+@if (mensajeError()) {
+  <p class="alert">{{ mensajeError() }}</p>
+}
+
+@if (ticket(); as ticketActual) {
+  <article class="detail-card">
+    <div class="detail-header">
+      <div>
+        <p class="ticket-id">Ticket #{{ ticketActual.id }}</p>
+        <h1>{{ ticketActual.titulo }}</h1>
+      </div>
+
+      <div class="badges">
+        <app-status-badge tipo="estado" [valor]="ticketActual.estado" />
+        <app-status-badge tipo="prioridad" [valor]="ticketActual.prioridad" />
+      </div>
+    </div>
+
+    <p class="description">{{ ticketActual.descripcion }}</p>
+
+    <dl class="meta-grid">
+      <div>
+        <dt>Responsable</dt>
+        <dd>{{ ticketActual.responsable }}</dd>
+      </div>
+      <div>
+        <dt>Fecha de creacion</dt>
+        <dd>{{ ticketActual.fechaCreacion }}</dd>
+      </div>
+    </dl>
+
+    <div class="status-control">
+      <label>
+        Cambiar estado
+        <select [ngModel]="ticketActual.estado" (ngModelChange)="cambiarEstado($event)">
+          <option value="pendiente">Pendiente</option>
+          <option value="en-proceso">En proceso</option>
+          <option value="resuelto">Resuelto</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="danger" (click)="eliminarTicket()">Eliminar ticket</button>
+    </div>
+  </article>
+} @else {
+  <div class="empty-state">
+    <h1>Ticket no encontrado</h1>
+    <p>No pudimos cargar el detalle solicitado. Puede que haya sido eliminado o que el enlace no sea correcto.</p>
+    <a routerLink="/tickets">Ir al listado</a>
+  </div>
+}

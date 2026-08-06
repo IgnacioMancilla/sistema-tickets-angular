@@ -1,0 +1,63 @@
+.navbar {
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #d9e2ec;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  color: #102a43;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  border-radius: 6px;
+  color: #486581;
+  font-weight: 600;
+  padding: 0.55rem 0.75rem;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #e6f6ff;
+  color: #0967d2;
+}
+
+.nav-links .new-ticket {
+  background: #0967d2;
+  color: #ffffff;
+}
+
+.nav-links .new-ticket:hover,
+.nav-links .new-ticket.active {
+  background: #0552b5;
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+  }
+}

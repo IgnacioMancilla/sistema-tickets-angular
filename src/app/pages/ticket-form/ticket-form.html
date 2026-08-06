@@ -1,0 +1,64 @@
+<section class="page-header">
+  <div>
+    <h1>Nuevo ticket</h1>
+    <p>Registra una solicitud de soporte con la informacion clave para hacer seguimiento.</p>
+  </div>
+</section>
+
+@if (mensajeError) {
+  <p class="alert">{{ mensajeError }}</p>
+}
+
+<form class="ticket-form" [formGroup]="ticketForm" (ngSubmit)="crearTicket()">
+  <label>
+    Titulo
+    <input type="text" formControlName="titulo" placeholder="Ej: Problema con acceso VPN" />
+    @if (campoInvalido('titulo')) {
+      <span class="error">El titulo es obligatorio.</span>
+    }
+  </label>
+
+  <label>
+    Descripcion
+    <textarea rows="5" formControlName="descripcion" placeholder="Describe el problema, pasos realizados y mensaje de error."></textarea>
+    @if (campoInvalido('descripcion')) {
+      <span class="error">La descripcion es obligatoria.</span>
+    }
+  </label>
+
+  <div class="form-row">
+    <label>
+      Estado
+      <select formControlName="estado">
+        <option value="pendiente">Pendiente</option>
+        <option value="en-proceso">En proceso</option>
+        <option value="resuelto">Resuelto</option>
+      </select>
+      @if (campoInvalido('estado')) {
+        <span class="error">El estado es obligatorio.</span>
+      }
+    </label>
+
+    <label>
+      Prioridad
+      <select formControlName="prioridad">
+        <option value="baja">Baja</option>
+        <option value="media">Media</option>
+        <option value="alta">Alta</option>
+      </select>
+      @if (campoInvalido('prioridad')) {
+        <span class="error">La prioridad es obligatoria.</span>
+      }
+    </label>
+  </div>
+
+  <label>
+    Responsable
+    <input type="text" formControlName="responsable" placeholder="Ej: Mesa de ayuda" />
+  </label>
+
+  <div class="actions">
+    <a routerLink="/tickets">Cancelar</a>
+    <button type="submit">Guardar ticket</button>
+  </div>
+</form>

@@ -1,0 +1,39 @@
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Panel de soporte</p>
+    <h1>Dashboard</h1>
+    <p class="subtitle">Resumen rapido del estado actual de los tickets.</p>
+  </div>
+
+  <a class="primary-link" routerLink="/tickets/nuevo">Crear ticket</a>
+</section>
+
+<section class="stats-grid" aria-label="Estadisticas de tickets">
+  <article class="stat-card">
+    <span>Total</span>
+    <strong>{{ total() }}</strong>
+  </article>
+  <article class="stat-card warning">
+    <span>Pendientes</span>
+    <strong>{{ pendientes() }}</strong>
+  </article>
+  <article class="stat-card info">
+    <span>En proceso</span>
+    <strong>{{ enProceso() }}</strong>
+  </article>
+  <article class="stat-card success">
+    <span>Resueltos</span>
+    <strong>{{ resueltos() }}</strong>
+  </article>
+  <article class="stat-card danger">
+    <span>Prioridad alta</span>
+    <strong>{{ prioridadAlta() }}</strong>
+  </article>
+</section>
+
+@if (total() === 0) {
+  <div class="empty-state">
+    <h2>No existen tickets todavia</h2>
+    <p>Crea el primer ticket para comenzar a gestionar solicitudes de soporte.</p>
+  </div>
+}

@@ -1,0 +1,18 @@
+<article class="ticket-card">
+  <div class="ticket-card__content">
+    <div>
+      <h2>{{ ticket().titulo }}</h2>
+      <p>{{ ticket().descripcion }}</p>
+    </div>
+
+    <div class="ticket-card__badges">
+      <app-status-badge tipo="estado" [valor]="ticket().estado" />
+      <app-status-badge tipo="prioridad" [valor]="ticket().prioridad" />
+    </div>
+  </div>
+
+  <div class="ticket-card__footer">
+    <span>Responsable: {{ ticket().responsable }}</span>
+    <a [routerLink]="['/tickets', ticket().id]">Ver detalle</a>
+  </div>
+</article>

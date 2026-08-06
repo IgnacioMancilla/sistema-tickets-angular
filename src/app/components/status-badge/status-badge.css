@@ -1,0 +1,38 @@
+.badge {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.4rem 0.6rem;
+}
+
+.estado-pendiente {
+  background: #fff3c4;
+  color: #8d2b0b;
+}
+
+.estado-en-proceso {
+  background: #d9e8ff;
+  color: #03449e;
+}
+
+.estado-resuelto {
+  background: #d8f3dc;
+  color: #1b5e20;
+}
+
+.prioridad-baja {
+  background: #e1f5fe;
+  color: #01579b;
+}
+
+.prioridad-media {
+  background: #fce8b2;
+  color: #7c4700;
+}
+
+.prioridad-alta {
+  background: #ffdde0;
+  color: #a61b1b;
+}
