@@ -1,4 +1,3 @@
-<img width="1414" height="660" alt="Captura de pantalla 2026-08-07 a la(s) 1 58 06 a m" src="https://github.com/user-attachments/assets/a5f4e8eb-845a-4e1a-9b46-ea26f68bf845" />
 # Sistema de Tickets Angular
 
 Aplicacion web de gestion de tickets de soporte desarrollada con Angular y TypeScript. Permite registrar, consultar y organizar incidencias de soporte desde una interfaz clara y adaptable.
@@ -84,6 +83,8 @@ src/app/
 ## Capturas de pantalla
 
 Capturas reales de las vistas de dashboard, listado y detalle una vez publicado el proyecto.
+
+<img width="1414" height="660" alt="Captura de pantalla 2026-08-07 a la(s) 1 58 06 a m" src="https://github.com/user-attachments/assets/a5f4e8eb-845a-4e1a-9b46-ea26f68bf845" />
 
 ## Mejoras futuras
 
